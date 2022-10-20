@@ -1,0 +1,15 @@
+connect(host, port=1883, keepalive=60, bind_address=””) //The connect method 
+
+def on_connect(client, userdata, flags, rc): //on_connect calling
+    if rc==0:
+        print("connected OK Returned code=",rc)
+    else:
+        print("Bad connection Returned code=",rc)
+        
+def on_connect(client, userdata, flags, rc): //Use for connection Flag
+    if rc==0:
+        client.connected_flag=True #set flag
+        print("connected OK Returned code=",rc)
+        #client.subscribe(topic)
+    else:
+        print("Bad connection Returned code= ",rc)
